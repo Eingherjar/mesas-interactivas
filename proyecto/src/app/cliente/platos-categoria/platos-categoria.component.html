@@ -1,0 +1,28 @@
+<!-- Estilos del contenedor principal -->
+<div class="content" *ngIf="data_categorias">
+  <button class="btn-primary" (click)="select_categorias()">VER CATEGORÍAS</button>
+  <br />
+
+  <!-- Nombre de la categoría -->
+  <div class="p-recomendados">
+    <h1 class="textoSecundario">{{nombre_categoria}}</h1>
+  </div>
+
+  <!-- Tarjetas y scroll -->
+  <div [ngClass]="{'scroll': data_categorias.length > 4}">
+    <div class="card" *ngFor="let activos of data_categorias ; let index = index"
+      (click)="plato_selccionado(activos.id_plato)">
+      <div class="imagen">
+        <img src="{{activos.imagen}}" alt="Imagen Descriptiva" />
+      </div>
+      <!-- Información del plato -->
+      <div class="cardb">
+        <h1 class="titulo textoPrimario">{{activos.nombre}}</h1>
+        <div class="des-precio">
+          <p class="des" class="textoCuerpo">{{activos.descripcion}}</p>
+          <span class="precio" class="textoCuerpo">${{activos.precio}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

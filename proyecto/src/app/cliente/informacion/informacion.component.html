@@ -1,0 +1,35 @@
+<!-- Contenedor principal -->
+<div class="content">
+  <div id="descripcion">
+    <!-- Tarjeta -->
+    <div class="card">
+      <button class="volver" (click)="regresar()">❮</button>
+      <img class="card-img-top" src="{{data_plato.imagen}}" alt="Imagen demostrativa">
+      <!-- Contenido de la tarjeta -->
+      <div class="card-body">
+        <h2 id="titulo" class="textoPrimario">{{data_plato.nombre}}</h2>
+        <div id="des-plato">
+          <h5 class="textoCuerpo">Descripción del plato:</h5>
+           <p class="textoCuerpo">{{data_plato.descripcion}}</p>
+          <p class="textoCuerpo">Valor del plato:<br> ${{data_plato.precio}}</p>
+        </div>
+        <!-- Botones para definir la cantidad -->
+        <div id="btn-a-p">
+          <div class="btn-group btn-group-toggle">
+            <label id="restar" class="btn btn-secondary" (click)="contador >= 2 ? contador = contador -1 : ''">
+              <p>-</p>
+            </label>
+            <label id="contador" class="btn btn-secondary">
+              <p>{{contador >= 1 ? contador : 1 }}</p>
+            </label>
+            <label id="sumar" class="btn btn-secondary" (click)="contador = contador + 1">
+              <p>+</p>
+            </label>
+          </div>
+          <a class="btn btn-primary" (click)="agregar_carro()"> AGREGAR PLATO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+

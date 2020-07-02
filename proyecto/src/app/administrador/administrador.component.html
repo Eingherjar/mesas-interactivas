@@ -1,0 +1,27 @@
+<!-- Estilo de vista "procesando pedido" -->
+<section class="content procesando" hidden>
+    <div class="imagen">
+      <img src="https://picsum.photos/344/194" alt="procesando" />
+    </div>
+  
+    <h1 class="textoSecundario">
+      Estamos procesando su orden, <br />
+      en unos minutos será confirmada
+    </h1>
+    <div class="imagen boton-regresar">
+      <input type="submit" class="btn-primary" value="REGRESAR AL MENÚ" />
+    </div>
+  </section>
+
+  <div class="content">
+    <app-menu-principal (send_menu)="events_menu($event)" ></app-menu-principal>
+
+    <app-plato [config]="config_plato" (send_plato)="events_plato($event)" [config_vista]="config_vista_plato" *ngIf="display_components == 'menu'"></app-plato>
+  
+    <app-mesas *ngIf="display_components == 'mesas'"></app-mesas>
+  
+    <app-pedidos *ngIf="display_components == 'pedidos'" [config]="config_pedidos" (send_pedidos)="events_pedidos($event)"></app-pedidos>
+  
+    
+  </div>
+ 

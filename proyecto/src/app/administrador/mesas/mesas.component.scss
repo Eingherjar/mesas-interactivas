@@ -1,0 +1,26 @@
+// Estilos del contenedor principal
+.content {
+  width: 100%;
+  height: auto;
+
+  .clearfix {
+    clear: both;
+    float: none;
+  }
+
+  // Estilos de la sección
+  .nuevo_plato {
+    display: inline-block;
+    width: 60%;
+    padding: 2% 0% 0% 5%;
+  }
+
+  #content_section {
+    width: 60%;
+
+    .content_codigos_qr {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}

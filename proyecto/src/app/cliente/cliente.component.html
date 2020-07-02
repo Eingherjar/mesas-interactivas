@@ -1,0 +1,17 @@
+<div class="content">
+  <app-buscador [config]="config_buscador" (buscador)="events_buscador($event)"></app-buscador>
+
+  <app-vista-vendidos *ngIf="vista_components == 'vista vendidos'" (send_vista_vendidos)="events_vista_vendidos($event)" [config]="config_vista_vendidos"></app-vista-vendidos>
+
+  <app-vista-platos *ngIf="vista_components == 'vista platos'"
+   (send_vista_platos)="events_vista_platos($event)" [config]="config_vista_platos"></app-vista-platos>
+
+  <app-platos-categoria *ngIf="vista_components == 'vista platos categorias'" (send_vista_categorias)="events_vista_categorias($event)" [config]="config_vista_categoria"></app-platos-categoria>
+
+  <app-pedido *ngIf="vista_components == 'vista pedidos'" [config]="config_vista_pedidos" (send_vista_pedidos)="events_vista_pedidos($event)"></app-pedido>
+
+  <app-informacion *ngIf="vista_components == 'vista informacion'"
+   [config]="config_vista_informacion" (send_vista_informacion)="events_vista_informacion($event)"></app-informacion>
+
+  <app-finalizar *ngIf="vista_components == 'vista finalizar'" [config]="config_vista_finalizar" (send_vista_finalizar)="events_vista_finalizar($event)"></app-finalizar>
+</div>

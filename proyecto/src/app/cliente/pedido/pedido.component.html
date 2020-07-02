@@ -1,0 +1,49 @@
+<!-- Contenedor principal -->
+<div class="content" *ngIf="data_recibidos">
+  <button class="volver" (click)="regresar()">❮</button>
+  <h1 class="textoPrimario">PLATOS SELECCIONADOS</h1>
+
+  <!-- Tarjetas y scroll -->
+  <div [ngClass]="{'scroll': data_recibidos.length > 4}">
+    <div class="card" *ngFor="let recibido of data_recibidos ; let index = index">
+      <div class="imagen">
+        <img src="{{recibido.imagen}}" alt="Imagen Descriptiva" />
+      </div>
+      <!-- Información de las tarjetas -->
+      <div class="cardb">
+        <button class="eliminar" (click)="eliminar_plato(index)">−</button>
+        <h1 class="titulo textoPrimario">{{recibido.nombre}}</h1>
+        <p class="des" class="textoCuerpo">{{recibido.descripcion}} </p>
+        <div class="precio-agregar">
+          <span class="precio" class="textoCuerpo">${{recibido.precio}}</span>
+          <!-- Definir cantidad -->
+          <div class="btn-group btn-group-toggle">
+            <label class="restar" class="btn btn-secondary"
+              (click)=" data_recibidos[index].cantidad >= 2 ? data_recibidos[index].cantidad = data_recibidos[index].cantidad - 1 : ''; cambiar_precio_total(index,'restar')">
+              <p>-</p>
+            </label>
+            <label id="contador" class="btn btn-secondary">
+              <p>{{ data_recibidos[index].cantidad}}</p>
+            </label>
+            <label class="sumar" class="btn btn-secondary"
+              (click)="data_recibidos[index].cantidad = data_recibidos[index].cantidad + 1; cambiar_precio_total(index,'sumar')">
+              <p>+</p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nota para el cocinero -->
+  <div class="nota">
+    <textarea id="nota_text" class="textoCuerpo" placeholder="Agregar nota para el cocinero"
+      [(ngModel)]="nota"></textarea>
+  </div>
+
+  <div class="total">
+    <h1 class="textoSecundario">TOTAL: ${{precio_total}}</h1>
+  </div>
+
+  <button type="submit" class="btn-primary" (click)="realizar_pedido()">Confirmar Pedido</button>
+</div>

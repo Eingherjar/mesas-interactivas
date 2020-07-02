@@ -1,0 +1,90 @@
+<!-- Contenedor principal -->
+<div class="content">
+
+  <!-- Contenedor pedidos por confirmar -->
+  <div class="p-confirmar" *ngIf="data_activos && data_seleccion_pedido.length === 0">
+    <h1 class="textoSecundario">PEDIDOS POR CONFIRMAR</h1>
+    <div [ngClass]="{'scroll':data_activos.length > 5}">
+      <div class="info-pedido" *ngFor="let activos of data_activos; let index = index"
+        (click)="pedido_seleccionado(activos.id_pedido,index, 'activos')">
+        <h2>Pedido N°{{activos.id_pedido}}</h2>
+        <p>Mesa {{activos.mesa}}</p>
+        <p>${{activos.precio}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor pedidos en curso -->
+  <div class="p-curso" *ngIf="data_en_curso && data_seleccion_pedido.length === 0">
+    <h1 class="textoSecundario">PEDIDOS EN CURSO</h1>
+    <div [ngClass]="{'scroll':data_en_curso.length > 5}">
+      <div class="info-pedido" *ngFor="let curso of data_en_curso; let index = index"
+        (click)="pedido_seleccionado(curso.id_pedido,index, 'curso')">
+        <h2>Pedido N°{{curso.id_pedido}}</h2>
+        <p>Mesa {{curso.mesa}}</p>
+        <p>${{curso.precio}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor pedidos finalizados -->
+  <div class="p-finalizados" *ngIf="data_finalizados && data_seleccion_pedido.length === 0">
+    <h1 class="textoSecundario">PEDIDOS FINALIZADOS</h1>
+    <div [ngClass]="{'scroll':data_finalizados.length > 5}">
+      <div class="info-pedido" *ngFor="let finalizados of data_finalizados; let index = index"
+        (click)="pedido_seleccionado(finalizados.id_pedido,index, 'finalizados')">
+        <h2>Pedido N°{{finalizados.id_pedido}}</h2>
+        <p>Mesa {{finalizados.mesa}}</p>
+        <p>${{finalizados.precio}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- INFORMACIÓN DEL PEDIDO -->
+
+  <div class="content info" *ngIf="data_seleccion_pedido.length > 0">
+    <div class="informacion">
+      <button class="volver" (click)="data_seleccion_pedido =[]; seleccion={}">❮</button>
+      <h1 class="textoPrimario">PEDIDO #{{seleccion.pedido.id_pedido}}</h1>
+      <h2 class="inf textoSecundario">Información del pedido: </h2>
+      <h2 class="textoSecundario">Mesa: {{seleccion.pedido.mesa}}</h2>
+      <h2 class="textoSecundario">Precio del pedido: ${{seleccion.pedido.precio}}</h2>
+      <fieldset class="rating">
+        <input type="radio" id="starhalf" name="rating" value="half" checked /><label class="half" for="starhalf"
+          title="Sucks big time - 0.5 stars">{{data_seleccion_pedido[0].valoracion / 2}} </label>
+      </fieldset>
+      <div class="platos_pedido">
+        <h1 class="textoPrimario">PLATOS DEL PEDIDO</h1>
+
+        <!-- Tabla con información del plato -->
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Nombre del plato</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let informacion of data_seleccion_pedido ; let index = index">
+              <td>{{informacion.nombre}}</td>
+              <td>${{informacion.precio}}</td>
+              <td>{{informacion.cantidad_platos}}</td>
+              <td>${{informacion.precio * informacion.cantidad_platos}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Agregar nota al cocinero -->
+        <textarea cols="40" rows="5" placeholder="Nota al cocinero" [(ngModel)]="data_seleccion_pedido[0].nota_cocinero"
+          disabled></textarea> <br>
+        <input type="submit" class="btn-primary"
+          value="{{seleccion.condicion === 'activos' ? 'CONFIRMAR PEDIDO' :seleccion.condicion === 'curso' ? 'FINALIZAR PEDIDO' : '' }}"
+          (click)="confirmar_pedido()" *ngIf="seleccion.condicion !== 'finalizados'">
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

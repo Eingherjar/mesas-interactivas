@@ -1,0 +1,48 @@
+<!-- Vista de calificar pedidos -->
+<div id="divContainerCalificar" class="container" *ngIf="condicion === 'calificar_pedido'">
+    <div id=divHeader>
+        <p class="textoPrimario">CALIFICA TU PEDIDO!</p>
+    </div>
+
+    <div id="divMensaje">
+        <p class="textoSecundario">Para nosotros es muy importante tu opinión</p>
+    </div>
+
+    <!-- Icono de estrellas -->
+    <div id="divContainerRating">
+        <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5"  [checked]="valoracion === 10 " (click)="valoracion = 10"/><label class = "full" for="star5"></label>
+            <input type="radio" id="star4half" name="rating" value="4 and a half"  [checked]="valoracion === 9 " (click)="valoracion = 9"/><label class="half" for="star4half"></label>
+            <input type="radio" id="star4" name="rating" value="4"  [checked]="valoracion === 8 " (click)="valoracion = 8"/><label class = "full" for="star4"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half"  [checked]="valoracion === 7 " (click)="valoracion = 7"/><label class="half" for="star3half"></label>
+            <input type="radio" id="star3" name="rating" value="3"  [checked]="valoracion === 6 " (click)="valoracion = 6"/><label class = "full" for="star3"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half"  [checked]="valoracion === 5 " (click)="valoracion = 5"/><label class="half" for="star2half"></label>
+            <input type="radio" id="star2" name="rating" value="2"  [checked]="valoracion === 4 " (click)="valoracion = 4" /><label class = "full" for="star2"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half"  [checked]="valoracion === 3 " (click)="valoracion = 3"/><label class="half" for="star1half"></label>
+            <input type="radio" id="star1" name="rating" value="1"  [checked]="valoracion === 2 " (click)="valoracion = 2"/><label class = "full" for="star1"></label>
+            <input type="radio" id="starhalf" name="rating" value="half"  [checked]="valoracion === 1 " (click)="valoracion = 1" /><label class="half" for="starhalf"></label>
+        </fieldset>
+    </div>
+
+    <!-- Confirmar valoración -->
+    <div id="divBtnConfirmar">
+        <button type="button" class="btn btn-primary" (click)="valorar_pedido()">CONFIRMAR</button>
+    </div>
+</div>
+
+
+<div id="containerFinalizar" class="container" *ngIf="condicion !== 'calificar_pedido'">
+    <div id="divImagen">
+        <img src="https://picsum.photos/257/145" class="card-img" alt="..." />
+    </div>
+
+    <div id="divMensajeCuerpo">
+        <p class="textoSecundario">{{ condicion == 'pedido_confirmado' ? 'Estamos procesando su orden, en unos minutos estara confirmada' : 'Su pedido ha sido confirmado, estamos preparando su comida '}}</p>
+    </div>
+
+    <div id="divBtnRegresar">
+        <button type="button" class="btn btn-primary" (click)="regresar()" *ngIf="condicion === 'pedido_curso'">REGRESAR AL MENÚ</button>
+    </div>
+    
+</div>
+

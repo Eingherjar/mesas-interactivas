@@ -1,0 +1,292 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+// // Todos los botones
+:root{
+--color-principal: #ff9200;
+--color-secundario: #707070;
+--color-terciario: #757575;
+--color-ayuda: #BCBCBC;
+--color-input: rgba(180, 180, 180, 0.2);
+}
+
+
+.textoPrimario{
+  color: var(--color-secundario); 
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.textoSecundario{
+  color: var(--color-secundario);
+  font-size: 28px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+
+.textoCuerpo{
+  color: var(--color-secundario);
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.textoAyuda{
+  color: var(--color-ayuda);
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+}
+
+.btn-primary {
+  color: white;
+  background-color: var(--color-principal);
+  font-family: "Roboto", sans-serif;
+  letter-spacing: calc(3px - 0.1em);
+  border-radius: 4px 4px 4px 4px;
+  border: 1px solid var(--color-principal);
+
+  &:hover {
+    color: white;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 2px 10px 1px rgba(0, 0, 0, 0.13), 0 3px 12px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  &:not(:disabled):not(.disabled):active {
+    background-color: var(--color-principal);
+    border: none;
+
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  &:focus {
+    background-color: var(--color-principal);
+    border: none;
+    box-shadow: unset;
+    outline: none;
+  }
+}
+
+// Inputs
+
+input::-webkit-input-placeholder {
+  /* Edge */
+  // border-bottom: 1px solid $color-input;
+  border-bottom: 1px solid var(--color-input);
+  font-weight: 600;
+}
+
+input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(3, 27, 78, 0.6);
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: rgba(3, 27, 78, 0.6);
+  font-weight: 600;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="searh"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+}
+
+input[type="search"] {
+  outline: none;
+  width: 240px;
+  border: 1px solid var(--color-input);
+  border-radius: 3px;
+  font-size: 15px;
+  color: black;
+  caret-color: var(--color-principal);
+  background-color: var(--color-input);
+  opacity: 0.7;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  background-image: url(https://s3.amazonaws.com/edutin-publico/academy/iconos/learn/icon-search.svg);
+  background-position: 210px;
+  background-repeat: no-repeat;
+  padding: 12px;
+  height: 40px;
+}
+
+input[type="search"]:focus {
+  border-bottom: 2px solid var(--color-principal);
+}
+
+.card.mb-3 {
+  font-family: "Roboto", sans-serif;
+
+  .card-title {
+    font-size: 29px;
+    font-weight: normal;
+  }
+  .card-text {
+    color: var(--color-terciario);
+    font-size: 15px;
+    font-weight: lighter;
+  }
+
+  .btn-group.btn-group-toggle {
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 4px;
+    
+    .btn.btn-secondary {
+      height: 20px;
+      color: black;
+      background-color: white;
+
+      border: none;
+      p {
+        margin-top: -8.1px;
+        margin-bottom: 1rem;
+        // background-color: white;
+      }
+    }
+  }
+
+   & > .col-md-4 >.card-img{
+     height: 176px;
+     max-height: 176px;
+     max-width: 176px;
+   }
+
+
+   & >.col-md-8 >.card-body{
+     padding: 31px 25px;
+     padding-bottom: 0px;
+
+     & >.card-text{
+       height: 30px;
+     }
+  } 
+}
+
+.select-plato{
+  background-color: var(--color-principal);
+  color: white;
+}
+
+
+// todo el css del notifier
+
+.notifier__container * {
+  box-sizing: border-box;
+}
+
+.notifier__container-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.notifier__notification {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  z-index: 10000;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.notifier__notification--material {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  padding-top: 11px;
+  padding-right: 26px;
+  padding-bottom: 10px;
+  padding-left: 26px;
+}
+
+.notifier__notification--material .notifier__notification-message {
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: top;
+  line-height: 32px;
+  font-size: 15px;
+}
+
+.notifier__notification--material .notifier__notification-button {
+  display: inline-block;
+  transition: opacity .2s ease;
+  opacity: .5;
+  margin-right: -10px;
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  vertical-align: top;
+}
+
+.notifier__notification--material .notifier__notification-button:hover, .notifier__notification--material .notifier__notification-button:focus {
+  opacity: 1;
+}
+
+.notifier__notification--material .notifier__notification-button:active {
+  transform: scale(0.82);
+  opacity: 1;
+}
+
+.notifier__notification--default {
+  background-color: #444;
+  color: #FFF;
+}
+
+.notifier__notification--default .notifier__notification-button-icon {
+  fill: #FFF;
+}
+
+.notifier__notification--error {
+  background-color: #D9534F;
+  color: #FFF;
+}
+
+.notifier__notification--error .notifier__notification-button-icon {
+  fill: #FFF;
+}
+
+.notifier__notification--info {
+  background-color: #5BC0DE;
+  color: #FFF;
+}
+
+.notifier__notification--info .notifier__notification-button-icon {
+  fill: #FFF;
+}
+
+.notifier__notification--success {
+  background-color: #5CB85C;
+  color: #FFF;
+}
+
+.notifier__notification--success .notifier__notification-button-icon {
+  fill: #FFF;
+}
+
+.notifier__notification--warning {
+  background-color: #F0AD4E;
+  color: #FFF;
+}
+
+.notifier__notification--warning .notifier__notification-button-icon {
+  fill: #FFF;
+}
+
+// termina el css del notifier

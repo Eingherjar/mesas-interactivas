@@ -1,0 +1,121 @@
+
+<!-- login de inicio-->
+<div class="content" *ngIf="condicion == 'login_inicio'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    ¡Nuevo menú virtual!
+  </h2>
+  <div class="btn-login">
+    <div id="primer-boton">
+      <button class="btn-primary" (click)="condicion = 'vista_iniciar'">INICIAR SESIÓN</button>
+    </div>
+    <div id="segundo-boton">
+      <button class="btn-primary" (click)="iniciar('invitado')">INGRESAR COMO INVITADO</button>
+    </div>
+    <div id="tercer-boton">
+      <button class="btn-primary" (click)="condicion='registrarse'">REGISTRARSE</button>
+    </div>
+  </div>
+</div>
+<!-- cierrre de login -->
+
+
+
+<!-- login usuario -->
+
+<div class="content login-usuario" *ngIf="condicion == 'vista_iniciar'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoPrimario">
+    Iniciar sesión
+  </h2>
+
+  <div class="content-inputs">
+    <!-- Usuario -->
+    <div id="box-inputs">
+      <input type="text" placeholder="Usuario" [(ngModel)]="texto_usuario" /> 
+      <br />
+      <input type="password" placeholder="Contraseña" [(ngModel)]="texto_password"/>
+      
+    </div>
+    <!-- Ingresar -->
+    <div id="iniciar" class="box-submit">
+      <input type="submit" class="btn-primary" value="INGRESAR" (click)="iniciar('registrado')" /> <br />
+      <a class="textoCuerpo" (click)="condicion = 'validar'; texto_usuario = ''; texto_password = '';">¿Ha olvidado su contraseña?</a>
+    </div>
+  </div>
+</div>
+<!-- cierre login usuario -->
+
+
+<!-- registro -->
+
+<div class="content registro"*ngIf="condicion == 'registrarse'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Ingresar credenciales
+  </h2>
+  <div id="datos" class="content-inputs">
+    <input type="text" class="pedir_datos" placeholder="Usuario" [(ngModel)] ="texto_usuario"/><br />
+    <input type="text" class="pedir_datos" placeholder="Correo" [(ngModel)]="texto_correo"/> <br />
+    <input type="password" class="pedir_datos" placeholder="Contraseña"[(ngModel)]="texto_password" />
+  </div>
+
+  <!-- <div id="RadioButton">
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('masculino')" /> Masculino
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('femenino')"/> Femenino
+    <input type="radio" class="r_button" name="optradio"  (click)="validar_sexo('otro')"/> Otro
+  </div> -->
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="REGISTRAR" (click)="registrar()"/>
+  </div>
+</div>
+<!-- cierre registro -->
+
+
+<!-- Validar usuario -->
+<div class="content v_validar" *ngIf="condicion == 'validar'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Validar usuario
+  </h2>
+  <div id="validar_datos" class="content-inputs">
+    <input type="text" class="pedir_datos" placeholder="Usuario" [(ngModel)] ="texto_usuario"/><br />
+    <input type="text" class="pedir_datos" placeholder="Correo" [(ngModel)] = "texto_correo" /> <br />
+  </div>
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="VALIDAR USUARIO" (click)="validar_usuario()" />
+  </div>
+</div>
+<!-- Fin de validar usuario -->
+
+
+<!-- Cambiar contraseña -->
+
+<div class="content password" *ngIf="condicion == 'cambiar_password'">
+  <div class="img-principal">
+    <img src="https://picsum.photos/344/194" alt="principal" />
+  </div>
+  <h2 class="textoSecundario">
+    Cambiar contraseña
+  </h2>
+  <div id="cambiar_password" class="content-inputs">
+    <input type="password" class="pedir_datos" placeholder="Nueva contraseña" [(ngModel)]= "texto_password"/><br />
+    <input type="password" class="pedir_datos" placeholder="Confirmar contraseña" [(ngModel)] = "texto_new_password"/> <br />
+  </div>
+
+  <div class="box-submit">
+    <input type="submit" class="btn-primary registro" value="CAMBIAR CONTRASEÑA" (click)="cambiar_password()" />
+  </div>
+</div>
+
+<!-- Fin de cambiar contraseña -->

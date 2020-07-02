@@ -1,0 +1,93 @@
+<!-- Contenedor principal -->
+<div class="content">
+
+  <section class="platos" *ngIf="vista == 'menu_principal' ">
+    <!-- Título -->
+    <div class="textoPrimario" style="cursor: pointer;">
+      <span (click)="vista='crear_plato';texto_boton = 'CREAR PLATO'; titulo= 'NUEVO PLATO'">AÑADIR PLATO +</span>
+    </div>
+
+    <!-- Platos disponibles -->
+    <h2 class="textoSecundario">PLATOS DISPONIBLES</h2>
+    <div [ngClass]="{'scroll':data_platos.length > 6}" *ngIf="data_platos">
+      <article *ngFor="let platos of data_platos; let index = index">
+        <div class="card" (click)="seleccion_plato(platos.id_plato)">
+          <div class="imagen">
+            <img src="{{platos.imagen}}" alt="Imagen Descriptiva" />
+          </div>
+          <!-- Información del plato -->
+          <div class="cardb">
+            <h1 class="titulo textoPrimario">{{platos.nombre}}</h1>
+            <p class="des" class="textoCuerpo">{{platos.descripcion}}</p>
+            <div class="precio-agregar">
+              <p class="precio" class="textoCuerpo">${{platos.precio}}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Platos no disponibles -->
+    <h2 class="textoSecundario" style="margin-top: 30px;">PLATOS NO DISPONIBLES</h2>
+    <div [ngClass]="{'scroll':platos_no_disponibles.length > 6}" *ngIf="platos_no_disponibles">
+      <article *ngFor="let platos of platos_no_disponibles; let index = index">
+        <div class="card" (click)="seleccion_plato(platos.id_plato)">
+          <div class="imagen">
+            <img src="{{platos.imagen}}" alt="Imagen Descriptiva" />
+          </div>
+          <div class="cardb">
+            <!-- Información de los platos no disponibles -->
+            <h1 class="titulo textoPrimario">{{platos.nombre}}</h1>
+            <p class="des" class="textoCuerpo">{{platos.descripcion}}</p>
+            <div class="precio-agregar">
+              <p class="precio" class="textoCuerpo">${{platos.precio}}</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+
+<!-- vista de añadir y modificar un plato -->
+
+
+  <!--------------------- AÑADIR NUEVO PLATO ----------------------->
+<div class="content agregar_plato" *ngIf="vista != 'menu_principal'">
+
+  <section class="nuevo_plato">
+    <div class="textoPrimario">
+      <button class="volver" (click)="volver()">❮</button>
+      <span>{{titulo}}</span>
+      <br>
+      <input type="checkbox" [checked]="estado_plato" (change)="estado_plato = $event.target.checked "  *ngIf="titulo === 'MODIFICAR PLATO'"/> <span
+        style="color: var(--color-secundario);" *ngIf="titulo === 'MODIFICAR PLATO'">Estado del plato</span>
+    </div>
+    <!-- Formulario para añadir el nuevo plato -->
+    <div id="box-inputs">
+      <input type="text" placeholder="Nombre del plato" [(ngModel)]="nombre" /> <br />
+      <textarea id="Descripcion" cols="40" rows="5" placeholder=" Descripción del plato"
+        [(ngModel)]="descripcion"></textarea>
+      <br />
+      <input type="number" placeholder="Precio del plato" [(ngModel)]="precio" /> <br />
+      <input type="text" placeholder="Subir imagen" [(ngModel)]="imagen" /> <br />
+      <input type="submit" class="btn-primary" [ngStyle]="{'width.%':vista =='modificar_plato' ? 31 : 25}"
+        value="{{texto_boton}}" (click)="plato(vista == 'modificar_plato' ? 'modificar' : 'crear')" /> <br />
+    </div>
+    <div class="clearfix"></div>
+  </section>
+
+  <!--------------------- FIN AÑADIR NUEVO PLATO ----------------------->
+
+  <!--------------------- CATEGORIAS ----------------------->
+
+  <div class="content_categorias">
+    <h2 class="textoSecundario">CATEGORÍAS</h2>
+    <div class="categoria" *ngFor="let categoria of categroias ; let index = index">
+      <p class="textoCuerpo">{{categoria.nombre}}<input type="checkbox" [checked]="id_categorias.includes(categoria.id)"
+          [id]="'categoria-'+categoria.id" (change)="onChecked(categoria.id, $event.target.checked)" />
+      </p>
+    </div>
+  </div>
+</div>

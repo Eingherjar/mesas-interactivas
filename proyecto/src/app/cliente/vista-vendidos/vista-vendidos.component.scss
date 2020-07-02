@@ -1,0 +1,96 @@
+//Estilos de contenedor principal
+.content {
+  display: block;
+  width: 90%;
+  margin: 20px auto;
+
+  // Estilos de las tarjetas
+  &>.p-recomendados {
+    display: block;
+    width: 100%;
+    padding: 2px;
+    margin-top: 20px;
+
+    &>.textoSecundario {
+      font-size: 17px;
+    }
+
+    &>.img-recomendados img {
+      width: 24%;
+      margin-right: 3px;
+    }
+
+    &>.img-recomendados img:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+// Responsives
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+
+    &>.btn-primary {
+      font-size: 14px;
+    }
+
+    &>.p-recomendados {
+      width: 103%;
+
+      h1.textoSecundario {
+        font-size: 34px;
+      }
+    }
+
+    &>.btn-primary {
+      font-size: 21px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    width: 90%;
+
+    &>.btn-primary {
+      font-size: 13px;
+    }
+
+    &>.p-recomendados {
+      height: 145px;
+
+      h1.textoSecundario {
+        font-size: 25px;
+      }
+    }
+
+    &>.btn-primary {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .content {
+    width: 93%;
+  }
+}
+
+@media (max-width: 320px) {
+  .content {
+    width: 92%;
+
+    &>.p-recomendados {
+      height: 125px;
+
+      h1.textoSecundario {
+        font-size: 25px;
+      }
+    }
+
+    &>.btn-primary {
+      font-size: 18px;
+    }
+  }
+}
