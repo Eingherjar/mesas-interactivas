@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("id_mesa",""+this.id_mesa);
     let usuario = localStorage.getItem('id_usuario');
 
-    if (usuario != 'null' && usuario != "0") {
+    if (usuario !== null) {
       let id = localStorage.getItem("id_mesa");
       this.router.navigate(['cliente/'+(this.id_mesa != 0 ? this.id_mesa : id)]);
     }
