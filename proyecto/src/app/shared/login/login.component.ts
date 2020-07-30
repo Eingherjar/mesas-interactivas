@@ -39,6 +39,9 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private router_url: ActivatedRoute) { }
 
   ngAfterViewInit() {
+    
+    localStorage.clear();
+
     this.id_mesa = parseInt(this.router_url.snapshot.paramMap.get('id'));
     if (this.id_mesa == undefined || this.id_mesa== null || this.id_mesa == 0) {
       this.router.navigate(['/login/']);
