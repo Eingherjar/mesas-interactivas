@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/Operators';
+import { map } from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {class_http} from './abstract_class.component'
 @Injectable({

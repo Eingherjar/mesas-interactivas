@@ -1,5 +1,4 @@
 import { Component, OnInit,Input,Output,EventEmitter, SimpleChanges } from '@angular/core';
-import { delay } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-pedidos',
