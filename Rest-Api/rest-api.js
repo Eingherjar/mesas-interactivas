@@ -27,9 +27,9 @@ function getDbPool() {
 
 
             // esto nada mas se descomenta cuando se estan haciendo pruebas locales
-            // host: "34.95.157.90",
-            // user: "mesasdb",
-            // password: "mesasdb123",
+            // host: "35.222.11.195",
+            // user: "Inglemar",
+            // password: "root",
             // database: 'mesas_interactivas'
         });
 
