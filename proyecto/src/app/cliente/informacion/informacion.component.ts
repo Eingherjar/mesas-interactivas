@@ -30,7 +30,6 @@ export class InformacionComponent implements OnInit {
       switch(this.config.event){
         case 'plato_seleccionado':
           this.data_plato = this.config.plato[0];
-          console.log("datos del plato",this.data_plato);
           this.origen = this.config.lugar
         break;
       }
@@ -39,7 +38,6 @@ export class InformacionComponent implements OnInit {
 
   // metodo para añadir la cantidad de platos a el carro y añadir los platos al componente pedido
   agregar_carro(){
-    console.log("esto es para agregar al carro");
 
     let agregar ={  
       id_plato: this.data_plato.id_plato,
@@ -57,7 +55,6 @@ export class InformacionComponent implements OnInit {
 
   // regresa al menu de donde se abrio la descipcion del plato
   regresar(){
-    console.log("click",this.origen);
     if(this.origen === 'principal'){
 
       this.send_vista_informacion.emit({
@@ -71,5 +68,4 @@ export class InformacionComponent implements OnInit {
       })
     }
   }
-
 }

@@ -30,7 +30,6 @@ export class VistaVendidosComponent implements OnInit {
     this.data_asados = [];
     this.data_pollos = [];
     this.data_sopas = [];
-
   }
 
   ngOnChanges(changes: SimpleChanges) {

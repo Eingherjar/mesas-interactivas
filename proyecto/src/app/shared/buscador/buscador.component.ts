@@ -24,14 +24,12 @@ export class BuscadorComponent implements OnInit {
       switch(this.config.event){
         case "añadir":
 
-          console.log("datos que entran en añadir");
             if (this.platos_añadidos.length == 0){
               this.platos_añadidos.push(this.config.datos);
               this.contador++;
             }else{
               for (let i =0; i<this.platos_añadidos.length ; i++){
                 let incluido = this.platos_añadidos[i].id_plato === this.config.datos.id_plato ? true : false ;
-                console.log("datos que toma incluido",incluido)
                 
                 if(incluido === true){
                   this.platos_añadidos[i]=this.config.datos
@@ -40,14 +38,11 @@ export class BuscadorComponent implements OnInit {
                 }
 
                 if((i === this.platos_añadidos.length - 1) && (incluido === false)){
-
                   this.platos_añadidos.push(this.config.datos);
-                  console.log("platos que se añaden al carro",incluido);
                   this.contador++;
                 }
               }
             }
-            console.log("datos que estan en platos añadidos", this.platos_añadidos, this.contador);
         break;
       
         case 'cantidad_platos':
@@ -64,7 +59,6 @@ export class BuscadorComponent implements OnInit {
     }
   }
 
-
   enviar(){
     this.buscador.emit({
       event:"carrito",
@@ -72,5 +66,4 @@ export class BuscadorComponent implements OnInit {
     })
   }
   
-
 }

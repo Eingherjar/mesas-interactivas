@@ -35,8 +35,6 @@ export class PedidoComponent implements OnInit {
     if (changes.hasOwnProperty('config') && this.config) {
       switch(this.config.event){
         case 'carrito':
-          console.log("datos recibidos",this.config);
-
           this.data_recibidos = this.config.datos;
 
           this.data_recibidos.forEach(element=>{
@@ -63,9 +61,7 @@ export class PedidoComponent implements OnInit {
           this.data_recibidos= [];
           this.precio_base = 0;
           this.precio_total = 0 
-          this.nota = '';
-
-         
+          this.nota = '';        
         break;
       }
     }
@@ -96,13 +92,8 @@ export class PedidoComponent implements OnInit {
 
     }else if (condicion === "restar"){
       this.precio_total = this.data_recibidos[index].cantidad >= 1  && this.precio_total > this.precio_base? this.precio_total - this.data_recibidos[index].precio : this.precio_total;
-      
     }
-
   }
-
-
-
 
   //  se envia al componente principal hacia donde se va a regresar 
   regresar(){
@@ -128,7 +119,5 @@ export class PedidoComponent implements OnInit {
       event:'realizar_pedido',
       pedido:pedido
     })
-
-
   }
 }

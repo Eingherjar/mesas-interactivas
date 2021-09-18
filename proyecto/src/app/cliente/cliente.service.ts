@@ -16,7 +16,6 @@ export class ClienteService extends class_http {
   Listado_Platos():Observable<Object>{
     return this.http.get(this.API_URL+"Platos/Disponibles",this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que regresa el servicio de listado platos ",data);
         return data;
       })
     )
@@ -58,7 +57,6 @@ export class ClienteService extends class_http {
   Categorias_Id(data):Observable<object>{
     return this.http.post(this.API_URL + "Categorias/Id",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que devuelve el servicio de categorias id",data);
         return data;
       })
     )
@@ -68,7 +66,6 @@ export class ClienteService extends class_http {
   Mostrar_Plato(data):Observable<Object>{
     return this.http.post(this.API_URL+"Plato/Id",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos del servicio de mostrar plato",data);
         return data;
       })
     )
@@ -77,7 +74,6 @@ export class ClienteService extends class_http {
   Realizar_Pedido(data):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Realizar",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el pedido realizado",data);
         return data
       })
     )
@@ -86,7 +82,6 @@ export class ClienteService extends class_http {
   Especificar_Pedido(data):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Especificar",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el pedido realizado",data);
         return data
       })
     )
@@ -95,7 +90,6 @@ export class ClienteService extends class_http {
   Mostrar_Informacion_Pedido(id):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Informacion",id,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de mostar informacion de un pedido",data);
         return data;
       })
     )
@@ -104,11 +98,9 @@ export class ClienteService extends class_http {
   Valorar_Pedido(data):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Valoracion",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de valorar un pedido",data);
         return data;
       })
     )
   }
-
 
 }

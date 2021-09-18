@@ -80,7 +80,6 @@ export class PlatoComponent implements OnInit {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("simple changes", changes);
 
     //  nada mas entra aca cada vez que se mandan datos del componente administrador al componente de plato
     if (changes.hasOwnProperty('config') && this.config) {
@@ -99,7 +98,6 @@ export class PlatoComponent implements OnInit {
 
             // se recolecta el id del plato que se acaba de crear
             this.id_plato_creado = this.config.data.plato;
-            console.log("datos del plato creaado de id_plato_creado",this.id_plato_creado);
 
           }else{
             this.send_plato.emit({
@@ -130,9 +128,7 @@ export class PlatoComponent implements OnInit {
 
           // se elimina todas las categorias seleccionadas de ese plato para que no quede ninguna categoria seleccionada
           for(let i=0; i < this.id_categorias.length ;i++){
-            console.log("id de la categoria ",'categoria-'+this.id_categorias[i]);
             let id= this.id_categorias.indexOf(this.id_categorias[i]);
-            console.log("id:",id);
             if(this.id_categorias.length == 1){
               this.id_categorias=[]
             }else{
@@ -144,20 +140,17 @@ export class PlatoComponent implements OnInit {
         case 'listado_platos':
           // muestra todos los platos disponibles 
           this.data_platos = this.config.platos
-          console.log("datos de data_platos",this.data_platos);
         break;
 
         case 'platos_no_disponibles':
           // muestra todos los platos no disponibles 
           this.platos_no_disponibles = this.config.platos;
-          console.log("datos de los platos no disponibles en plato", this.platos_no_disponibles);
         break;
 
         case 'traer_categorias':
           // se trae todas las categorias que tiene un plato y se muestran 
           for(let i=0; i< this.config.categorias.length ;i++){
             this.id_categorias.push(""+this.config.categorias[i].id_categoria);
-            console.log("datos de las categorias",this.id_categorias);
           } 
         break;
 
@@ -168,13 +161,6 @@ export class PlatoComponent implements OnInit {
           this.imagen = this.config.plato[0].imagen;
           this.precio = this.config.plato[0].precio;
           this.estado_plato = this.config.plato[0].estado == 0 ? false : true;
-          console.log("datos que trae el nombre",{
-            nombre:this.nombre,
-            descripcion:this.descripcion,
-            imagen:this.imagen,
-            precio:this.precio,
-            estado: this.estado_plato
-          })
           this.send_plato.emit({
             event: 'traer_categorias',
             data:{
@@ -195,8 +181,6 @@ export class PlatoComponent implements OnInit {
         break
       
         case 'modificado_plato':
-
-          console.log("entro en la condicion de modificado plato");
            
           //  en esta parte se recorre el array de los platos activos para ver la posicion de que plato es el que se modifico
           if(this.estado_plato === true){
@@ -223,7 +207,6 @@ export class PlatoComponent implements OnInit {
                   if (incluido === true){
                     this.data_platos.push(this.platos_no_disponibles[index]);
                     this.platos_no_disponibles.splice(index,1);
-                    console.log("datos eliminados de los platos no disponibles y añadido en los platos disponibles");
                   }
                 })
               }
@@ -238,8 +221,6 @@ export class PlatoComponent implements OnInit {
               if (incluido === true){
                 this.platos_no_disponibles.push(this.data_platos[index]);
                 this.data_platos.splice(index,1);
-                console.log("datos eliminados de los platos disponibles y añadido en los platos no disponibles");
-               
               }
             })
           }
@@ -293,10 +274,8 @@ export class PlatoComponent implements OnInit {
   onChecked(categoria, cheked){
     if(cheked === true){
       this.id_categorias.push(categoria);
-      console.log("se añadio la categria con la id: ",this.id_categorias);
     }else{
       this.id_categorias.splice(this.id_categorias.indexOf(categoria),1);
-      console.log("se elimino la categria con la id: ",this.id_categorias);
     }
   }
 

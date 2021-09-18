@@ -18,7 +18,6 @@ export class VistaPlatosComponent implements OnInit {
   ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("simple changes", changes);
 
     if (changes.hasOwnProperty('config') && this.config) {
 
@@ -38,10 +37,6 @@ export class VistaPlatosComponent implements OnInit {
 
   plato_seleccionado(id){
     this.send_vista_platos.emit({
-      event:"plato_seleccionado",
-      id:id
-    })
-    console.log("datos que se mandan para la informacion ",{
       event:"plato_seleccionado",
       id:id
     })

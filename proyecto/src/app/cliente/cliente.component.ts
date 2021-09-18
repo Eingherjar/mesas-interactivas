@@ -73,7 +73,6 @@ export class ClienteComponent implements OnInit {
       case 'select_categorias':
         this.vista_components ="vista vendidos";
         this.service.Imagenes_Categorias().subscribe((data:any)=>{
-          console.log("datos que trae el servicio de imagenes_categorias",data);
           this.config_vista_vendidos = {
             event:"imagen_categorias",
             categorias:data
@@ -99,7 +98,7 @@ export class ClienteComponent implements OnInit {
 
         else if(data.estado === 'error'){
           this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
-          console.log("error al mostar el detalle de un plato",data);
+          // console.log("error al mostar el detalle de un plato",data);
         }
       })
 
@@ -114,7 +113,6 @@ export class ClienteComponent implements OnInit {
       break;
 
       case 'seleccion': 
-        console.log("datos que trae la seleccion de la categoria",e);
         let id ={
           id_categoria:e.seleccion
         }
@@ -130,8 +128,6 @@ export class ClienteComponent implements OnInit {
           } 
           else if(data.estado === "error"){
             this.notifier.notify("error",data.error ? data.error.mensaje : "no se pueden cargar los platos de la categoria");
-            console.log("error en las categorias individuales",data);
-
           }
         })
       break;  
@@ -143,7 +139,6 @@ export class ClienteComponent implements OnInit {
       case 'select_categorias':
         this.vista_components ="vista vendidos";
         this.service.Imagenes_Categorias().subscribe((data:any)=>{
-          console.log("datos que trae el servicio de imagenes_categorias",data);
           this.config_vista_vendidos = {
             event:"imagen_categorias",
             categorias:data
@@ -168,7 +163,7 @@ export class ClienteComponent implements OnInit {
 
           else if(data.estado === 'error'){
             this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
-            console.log("error al mostar el detalle de un plato",data);
+            // console.log("error al mostar el detalle de un plato",data);
           }
         })
       break;
@@ -178,12 +173,10 @@ export class ClienteComponent implements OnInit {
   events_vista_informacion(e){
     switch(e.event){
       case 'regresar':
-        console.log("datos que trae el event",e.destino);
       this.vista_components = e.destino === "principal " ? "vista platos" : e.destino === "categorias"  ? "vista platos categorias" : "vista platos";
       break;
 
       case 'agregar_carro':
-        console.log("entro en la condicion de agregar carro");
         this.config_buscador={
           event:"añadir",
           datos: e.envio
@@ -233,7 +226,7 @@ export class ClienteComponent implements OnInit {
             }
 
             this.service.Especificar_Pedido(pedido).subscribe((data:any)=>{
-              console.log("datos del pedido especificado",data);
+              // console.log("datos del pedido especificado",data);
             })
 
             if(i === e.platos.length - 1){
@@ -280,7 +273,7 @@ export class ClienteComponent implements OnInit {
           }
         }
         else{
-          console.log("algo ha ocurrido al mostrar la informacion del pedido en la vista finalizar");
+          // console.log("algo ha ocurrido al mostrar la informacion del pedido en la vista finalizar");
         }
       })
     break;
@@ -292,7 +285,7 @@ export class ClienteComponent implements OnInit {
           this.vista_components = 'vista platos'; 
         }else if (data.estado === 'error'){
           this.notifier.notify("error","ha ocurrido un error al valorar su pedid, por favor intente nuevamente");
-          console.log("error al valorar un pedido",data);
+          // console.log("error al valorar un pedido",data);
         }
       })
      
@@ -318,8 +311,6 @@ export class ClienteComponent implements OnInit {
 
           this.vista_components='vista finalizar';
         }
-
-        console.log("entro en la condicion de el confirmar pedido de cliente",data);
       })
     }, 15000);
   }

@@ -33,7 +33,6 @@ export class PedidosComponent implements OnInit {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("simple changes", changes);
 
     if (changes.hasOwnProperty('config') && this.config) {
 
@@ -43,7 +42,6 @@ export class PedidosComponent implements OnInit {
         case 'pedidos_activos':
           // se reciben todos los datos de los pedidos activos de parte de administrador cada ves que en el menu se de click a pedidos 
           this.data_activos = this.config.activos;
-          console.log("datos_activos",this.data_activos);
           this.data_seleccion_pedido=[];
           this.seleccion={};
         break;  
@@ -51,7 +49,6 @@ export class PedidosComponent implements OnInit {
         case 'pedidos_en_curso':
            // se reciben todos los datos de los pedidos en curso de parte de administrador cada ves que en el menu se de click a pedidos 
           this.data_en_curso = this.config.encurso;
-          console.log("datos_en_curso",this.data_en_curso);
           this.data_seleccion_pedido=[];
           this.seleccion={};
         break;
@@ -59,7 +56,6 @@ export class PedidosComponent implements OnInit {
         case 'pedidos_finalizados':
            // se reciben todos los datos de los pedidos finalizados de parte de administrador cada ves que en el menu se de click a pedidos 
           this.data_finalizados = this.config.finalizados;
-          console.log("datos_finalizados",this.data_finalizados);
           this.data_seleccion_pedido=[];
           this.seleccion={};
         break;
@@ -172,7 +168,7 @@ export class PedidosComponent implements OnInit {
         })
       }
     }else{
-      console.log("error al confirmar el pedido")
+      // console.log("error al confirmar el pedido")
     }
   }
 
@@ -183,7 +179,7 @@ export class PedidosComponent implements OnInit {
     this.send_pedidos.emit({
       event:'actualizacion_pedidos'
     })
-    console.log("entro en la repeticion");
+    // console.log("entro en la repeticion");
    }, 15000);
   }
 }
