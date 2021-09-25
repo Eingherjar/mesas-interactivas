@@ -17,7 +17,6 @@ export class AdministradorService  extends class_http{
   Crear_Platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"/Platos/Crear",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que retorna el servicio de crear platos");
         return data;
       })
     )
@@ -27,7 +26,6 @@ export class AdministradorService  extends class_http{
   Modificar_platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"Platos/Modificar",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que trae el servicio de modificar platos",data);
         return data;
       })
     )
@@ -37,7 +35,6 @@ export class AdministradorService  extends class_http{
   Agregar_Categorias_Plato(data):Observable<Object>{
     return this.http.post(this.API_URL+"Categorias/Agregar",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que mestra el servicio de añadir una categoria al plato",data);
         return data;
       })
     )
@@ -47,7 +44,6 @@ export class AdministradorService  extends class_http{
   Listado_Platos():Observable<Object>{
     return this.http.get(this.API_URL+"Platos/Disponibles",this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que regresa el servicio de listado platos ",data);
         return data;
       })
     )
@@ -57,7 +53,6 @@ export class AdministradorService  extends class_http{
   Listado_no_Dispopnibles():Observable<Object>{
     return this.http.get(this.API_URL+"Platos/NoDisponibles",this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de listrado de platos no disponibles",data);
         return data;
       })
     )
@@ -67,7 +62,6 @@ export class AdministradorService  extends class_http{
   Listado_Categorias_Platos(data):Observable<Object>{
     return this.http.post(this.API_URL+"Platos/Categorias",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que se estan mostrando en el servicio de listado categorias platos",data);
         return data;
       })
     )
@@ -76,7 +70,6 @@ export class AdministradorService  extends class_http{
   Mostrar_Plato(data):Observable<Object>{
     return this.http.post(this.API_URL+"Plato/Id",data,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos del servicio de mostrar plato",data);
         return data;
       })
     )
@@ -85,7 +78,6 @@ export class AdministradorService  extends class_http{
   Mostrar_Pedidos_Realizados():Observable<Object>{
     return this.http.get(this.API_URL+ "Pedidos/Activos" ,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
     )
@@ -94,7 +86,6 @@ export class AdministradorService  extends class_http{
   Mostrar_Pedidos_EnCurso():Observable<Object>{
     return this.http.get(this.API_URL + "Pedidos/EnCurso" ,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
     )
@@ -103,7 +94,6 @@ export class AdministradorService  extends class_http{
   Mostrar_Pedidos_Finalizados():Observable<Object>{
     return this.http.get(this.API_URL + "Pedidos/Finalizados" ,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que muestra el servicio de mostrar pedidos realizados",data);
         return data;
       })
     )
@@ -112,7 +102,6 @@ export class AdministradorService  extends class_http{
   Mostrar_Informacion_Pedido(id):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Informacion",id,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de mostar informacion de un pedido",data);
         return data;
       })
     )
@@ -121,7 +110,6 @@ export class AdministradorService  extends class_http{
   Confirmar_Pedido(id):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Confirmar",id,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de confirmar pedido",data);
         return data;
       })
     )
@@ -130,7 +118,6 @@ export class AdministradorService  extends class_http{
   Finalizar_Pedido(id):Observable<Object>{
     return this.http.post(this.API_URL+"Pedidos/Finalizar",id,this.getHeaders()).pipe(
       map(data=>{
-        console.log("datos que responde el servicio de confirmar pedido",data);
         return data;
       })
     )

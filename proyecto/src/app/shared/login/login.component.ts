@@ -60,13 +60,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("simple changes", changes);
     if (changes.hasOwnProperty('configuracion') && this.configuracion) {
-      console.log("cambios configuracion", this.configuracion)
       switch (this.configuracion.event) {
 
         case 'login':
-          console.log("entro en el login", this.configuracion);
           this.data_login = this.configuracion;
 
           if (this.data_login.rol === 2) {
@@ -90,8 +87,6 @@ export class LoginComponent implements OnInit {
             break;
 
         case 'validar_usuario':
-          console.log("entro en validar usuario de login", this.configuracion);
-
           localStorage.setItem("id_usuario", this.configuracion.id_usuario);
           this.texto_password = '';
           this.texto_new_password = '';
@@ -108,7 +103,6 @@ export class LoginComponent implements OnInit {
           break;
 
         case 'registrar':
-          console.log("datos que entran en registrar de login", this.configuracion);
           break;
       }
     }
@@ -141,10 +135,6 @@ export class LoginComponent implements OnInit {
 
 
   validar_usuario() {
-    console.log("entro en el metodo de validar usuario con lo siguiente ", {
-      usuario: this.texto_usuario,
-      correo: this.texto_correo
-    })
 
     let validar = {
       nombre: this.texto_usuario,
@@ -159,10 +149,6 @@ export class LoginComponent implements OnInit {
   }
 
   cambiar_password() {
-    console.log("entro en el metodo de cambiar_password de login", {
-      password: this.texto_password,
-      new_password: this.texto_new_password
-    })
 
     if (this.texto_password === this.texto_new_password) {
       let cambiar = {
@@ -203,8 +189,7 @@ export class LoginComponent implements OnInit {
   }
 
   registrar() {
-    console.log("entro en el metodo de registrar");
-
+    
     let registrar = {
       nombre: this.texto_usuario,
       correo: this.texto_correo,

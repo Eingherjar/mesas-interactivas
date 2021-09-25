@@ -57,7 +57,6 @@ export class AdministradorComponent implements OnInit {
 
   // datos que recibe del componente menu
   events_menu(e) {
-    console.log("entro en el evento del menu", e.event);
     //  cada vez que entra a este metodo se encarga de recvcibir los datos del componente menu y hacer las solicitudes a la api por medio del servicio
     switch (e.event) {
       case 'menu':
@@ -81,7 +80,7 @@ export class AdministradorComponent implements OnInit {
             }
 
           } else if (data.estado === 'error') {
-            this.notifier.notify("error", "Ha ocurrido un error al traer los platos no disponibles", data);
+            this.notifier.notify("error", "Ha ocurrido un error al traer los platos no disponibles");
           }
         });
 
@@ -91,7 +90,6 @@ export class AdministradorComponent implements OnInit {
 
       case 'mesas':
         this.display_components = e.event;
-
         break;
 
       case 'pedidos':
@@ -106,7 +104,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-            console.log("error al traer los datos del pedido",data); 
+            this.notifier.notify("error", "error al traer los datos del pedido");
           }
         });
 
@@ -119,7 +117,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-            console.log("error al traer los datos del pedido",data); 
+            this.notifier.notify("error", "error al traer los datos del pedido");
           }
         });
 
@@ -132,7 +130,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-            console.log("error al traer los datos del pedido",data); 
+            this.notifier.notify("error", "error al traer los datos del pedido");
           }
         });
         break;
@@ -154,8 +152,6 @@ export class AdministradorComponent implements OnInit {
         this.service.Crear_Platos(e.data).subscribe((data: any) => {
           if (data.estado === 'success') {
             this.notifier.notify("success", "Plato creado satisfactoriamente");
-            console.log("datos del plato ", data);
-
             this.config_plato = {
               event: 'crear_plato',
               data: data
@@ -163,7 +159,6 @@ export class AdministradorComponent implements OnInit {
           }
           else if (data.estado === 'error') {
             this.notifier.notify("error", "Error al crear el plato");
-            console.log("datos del plato ", data);
           }
         });
         break;
@@ -174,16 +169,13 @@ export class AdministradorComponent implements OnInit {
             id_plato: e.id_plato,
             id_categoria: e.ciclo[i]
           }
-          console.log("datos que manda para la peticion de añadir categorias al plato", data);
           this.service.Agregar_Categorias_Plato(data).subscribe((data: any) => {
-            console.log("datos que se muestran ", data);
 
             if (i == e.ciclo.length - 1) {
               this.notifier.notify("success", "se ha añadido todas las categorias al plato");
               this.config_plato = {
                 event: e.case === "crear" ? 'agregado_plato' : 'modificado_plato'
               }
-              console.log("enveto mandado desde agregar categoria",e.case);
             }
           });
         }
@@ -224,14 +216,12 @@ export class AdministradorComponent implements OnInit {
         this.service.Modificar_platos(e.data).subscribe((data:any)=>{
           if (data.estado === 'success') {
             this.notifier.notify("success", "Plato modificado satisfactoriamente");
-            console.log("datos de la modificacion del plato ", data);
             this.config_plato = {
               event: 'modificar_plato' 
             }
           }
           else if (data.estado === 'error') {
             this.notifier.notify("error", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
-            console.log("datos de la modificacion del plato", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
           }
         }) 
       break;
@@ -256,7 +246,7 @@ export class AdministradorComponent implements OnInit {
           }
         } 
         else if (data.estado === "error"){
-          console.log("error al traer los datos del pedido",data); 
+          this.notifier.notify("error", "error al traer los datos del pedido");
         }
       });
       break;
