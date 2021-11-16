@@ -98,10 +98,7 @@ export class ClienteComponent implements OnInit {
 
         else if(data.estado === 'error'){
           this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
-<<<<<<< HEAD
           // console.log("error al mostar el detalle de un plato",data);
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
         }
       })
 
@@ -166,10 +163,7 @@ export class ClienteComponent implements OnInit {
 
           else if(data.estado === 'error'){
             this.notifier.notify("error","ha ocurrido un erro al mostar los detalles del plato");
-<<<<<<< HEAD
             // console.log("error al mostar el detalle de un plato",data);
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         })
       break;
@@ -231,13 +225,9 @@ export class ClienteComponent implements OnInit {
               cantidad:e.platos[i].cantidad
             }
 
-<<<<<<< HEAD
             this.service.Especificar_Pedido(pedido).subscribe((data:any)=>{
               // console.log("datos del pedido especificado",data);
             })
-=======
-            this.service.Especificar_Pedido(pedido).subscribe((data:any)=>{})
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
 
             if(i === e.platos.length - 1){
               this.notifier.notify("success","Se ha procesado el pedido satisfactoriamente");
@@ -283,11 +273,7 @@ export class ClienteComponent implements OnInit {
           }
         }
         else{
-<<<<<<< HEAD
           // console.log("algo ha ocurrido al mostrar la informacion del pedido en la vista finalizar");
-=======
-          this.notifier.notify("error","Algo ha ocurrido al mostrar la informacion del pedido en la vista finalizar")
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
         }
       })
     break;
@@ -298,12 +284,8 @@ export class ClienteComponent implements OnInit {
           this.notifier.notify("success","Pedido valorado satisfactoriamente");
           this.vista_components = 'vista platos'; 
         }else if (data.estado === 'error'){
-<<<<<<< HEAD
           this.notifier.notify("error","ha ocurrido un error al valorar su pedid, por favor intente nuevamente");
           // console.log("error al valorar un pedido",data);
-=======
-          this.notifier.notify("error","ha ocurrido un error al valorar su pedido, por favor intente nuevamente");
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
         }
       })
      

@@ -80,10 +80,6 @@ export class PlatoComponent implements OnInit {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-<<<<<<< HEAD
-
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
     //  nada mas entra aca cada vez que se mandan datos del componente administrador al componente de plato
     if (changes.hasOwnProperty('config') && this.config) {
       // switch para hacer las validaciones de todo lo que manda el componente administador al componente de plato
@@ -183,12 +179,8 @@ export class PlatoComponent implements OnInit {
           }) 
         break
       
-<<<<<<< HEAD
         case 'modificado_plato':
            
-=======
-        case 'modificado_plato':           
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           //  en esta parte se recorre el array de los platos activos para ver la posicion de que plato es el que se modifico
           if(this.estado_plato === true){
 
@@ -228,10 +220,6 @@ export class PlatoComponent implements OnInit {
               if (incluido === true){
                 this.platos_no_disponibles.push(this.data_platos[index]);
                 this.data_platos.splice(index,1);
-<<<<<<< HEAD
-=======
-               
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
               }
             })
           }

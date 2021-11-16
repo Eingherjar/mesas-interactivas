@@ -104,11 +104,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-<<<<<<< HEAD
             // console.log("error al traer los datos del pedido",data); 
-=======
-            this.notifier.notify("error", "error al traer los datos del pedido");
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         });
 
@@ -121,11 +117,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-<<<<<<< HEAD
             // console.log("error al traer los datos del pedido",data); 
-=======
-            this.notifier.notify("error", "error al traer los datos del pedido");
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         });
 
@@ -138,11 +130,7 @@ export class AdministradorComponent implements OnInit {
             }
           } 
           else if (data.estado === "error"){
-<<<<<<< HEAD
             // console.log("error al traer los datos del pedido",data); 
-=======
-            this.notifier.notify("error", "error al traer los datos del pedido");
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         });
         break;
@@ -171,10 +159,7 @@ export class AdministradorComponent implements OnInit {
           }
           else if (data.estado === 'error') {
             this.notifier.notify("error", "Error al crear el plato");
-<<<<<<< HEAD
             // console.log("datos del plato ", data);
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         });
         break;
@@ -186,19 +171,12 @@ export class AdministradorComponent implements OnInit {
             id_categoria: e.ciclo[i]
           }
           this.service.Agregar_Categorias_Plato(data).subscribe((data: any) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
             if (i == e.ciclo.length - 1) {
               this.notifier.notify("success", "se ha añadido todas las categorias al plato");
               this.config_plato = {
                 event: e.case === "crear" ? 'agregado_plato' : 'modificado_plato'
               }
-<<<<<<< HEAD
               // console.log("enveto mandado desde agregar categoria",e.case);
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
             }
           });
         }
@@ -245,10 +223,7 @@ export class AdministradorComponent implements OnInit {
           }
           else if (data.estado === 'error') {
             this.notifier.notify("error", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
-<<<<<<< HEAD
             // console.log("datos de la modificacion del plato", data.error.mensaje ? data.error.mensaje : "Error al modificar el plato");
-=======
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           }
         }) 
       break;
@@ -273,11 +248,7 @@ export class AdministradorComponent implements OnInit {
           }
         } 
         else if (data.estado === "error"){
-<<<<<<< HEAD
           // console.log("error al traer los datos del pedido",data); 
-=======
-          this.notifier.notify("error", "error al traer los datos del pedido");
->>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
         }
       });
       break;
