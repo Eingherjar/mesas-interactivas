@@ -167,8 +167,11 @@ export class PedidosComponent implements OnInit {
           pedido:pedido
         })
       }
+<<<<<<< HEAD
     }else{
       // console.log("error al confirmar el pedido")
+=======
+>>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
     }
   }
 
@@ -179,7 +182,10 @@ export class PedidosComponent implements OnInit {
     this.send_pedidos.emit({
       event:'actualizacion_pedidos'
     })
+<<<<<<< HEAD
     // console.log("entro en la repeticion");
+=======
+>>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
    }, 15000);
   }
 }

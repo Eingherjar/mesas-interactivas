@@ -20,7 +20,6 @@ export class VistaPlatosComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
 
     if (changes.hasOwnProperty('config') && this.config) {
-
       switch(this.config.event){
         case 'platos_activos':
           this.data_activos = this.config.platos

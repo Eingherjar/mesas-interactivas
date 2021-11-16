@@ -23,8 +23,6 @@ export class PedidoComponent implements OnInit {
 
   nota:String='';
   constructor() {}
-
-
  
   ngOnInit(): void {}
 
@@ -107,7 +105,6 @@ export class PedidoComponent implements OnInit {
     // recoleccion de los datos del local storage
     let usuario = localStorage.getItem("id_usuario");
     let mesa = localStorage.getItem("id_mesa");
-
     let pedido = {
     id_usuario: usuario,
     mesa:mesa,

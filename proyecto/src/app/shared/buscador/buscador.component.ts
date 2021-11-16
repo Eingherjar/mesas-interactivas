@@ -23,7 +23,6 @@ export class BuscadorComponent implements OnInit {
 
       switch(this.config.event){
         case "añadir":
-
             if (this.platos_añadidos.length == 0){
               this.platos_añadidos.push(this.config.datos);
               this.contador++;

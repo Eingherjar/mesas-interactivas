@@ -38,7 +38,6 @@ export class InformacionComponent implements OnInit {
 
   // metodo para añadir la cantidad de platos a el carro y añadir los platos al componente pedido
   agregar_carro(){
-
     let agregar ={  
       id_plato: this.data_plato.id_plato,
       nombre: this.data_plato.nombre,

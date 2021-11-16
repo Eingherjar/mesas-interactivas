@@ -1,12 +1,9 @@
-
 <!-- login de inicio-->
 <div class="content" *ngIf="condicion == 'login_inicio'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
-  <h2 class="textoSecundario">
-    ¡Nuevo menú virtual!
-  </h2>
+  <h2 class="textoSecundario">¡Nuevo menú virtual!</h2>
   <div class="btn-login">
     <div id="primer-boton">
       <button class="btn-primary" (click)="condicion = 'vista_iniciar'">INICIAR SESIÓN</button>
@@ -21,17 +18,13 @@
 </div>
 <!-- cierrre de login -->
 
-
-
 <!-- login usuario -->
 
 <div class="content login-usuario" *ngIf="condicion == 'vista_iniciar'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
-  <h2 class="textoPrimario">
-    Iniciar sesión
-  </h2>
+  <h2 class="textoPrimario">Iniciar sesión</h2>
 
   <div class="content-inputs">
     <!-- Usuario -->
@@ -50,16 +43,13 @@
 </div>
 <!-- cierre login usuario -->
 
-
 <!-- registro -->
 
 <div class="content registro"*ngIf="condicion == 'registrarse'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
-  <h2 class="textoSecundario">
-    Ingresar credenciales
-  </h2>
+  <h2 class="textoSecundario">Ingresar credenciales</h2>
   <div id="datos" class="content-inputs">
     <input type="text" class="pedir_datos" placeholder="Usuario" [(ngModel)] ="texto_usuario"/><br />
     <input type="text" class="pedir_datos" placeholder="Correo" [(ngModel)]="texto_correo"/> <br />
@@ -78,15 +68,12 @@
 </div>
 <!-- cierre registro -->
 
-
 <!-- Validar usuario -->
 <div class="content v_validar" *ngIf="condicion == 'validar'">
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
-  <h2 class="textoSecundario">
-    Validar usuario
-  </h2>
+  <h2 class="textoSecundario">Validar usuario</h2>
   <div id="validar_datos" class="content-inputs">
     <input type="text" class="pedir_datos" placeholder="Usuario" [(ngModel)] ="texto_usuario"/><br />
     <input type="text" class="pedir_datos" placeholder="Correo" [(ngModel)] = "texto_correo" /> <br />
@@ -105,9 +92,7 @@
   <div class="img-principal">
     <img src="https://picsum.photos/344/194" alt="principal" />
   </div>
-  <h2 class="textoSecundario">
-    Cambiar contraseña
-  </h2>
+  <h2 class="textoSecundario">Cambiar contraseña</h2>
   <div id="cambiar_password" class="content-inputs">
     <input type="password" class="pedir_datos" placeholder="Nueva contraseña" [(ngModel)]= "texto_password"/><br />
     <input type="password" class="pedir_datos" placeholder="Confirmar contraseña" [(ngModel)] = "texto_new_password"/> <br />
@@ -117,5 +102,4 @@
     <input type="submit" class="btn-primary registro" value="CAMBIAR CONTRASEÑA" (click)="cambiar_password()" />
   </div>
 </div>
-
 <!-- Fin de cambiar contraseña -->

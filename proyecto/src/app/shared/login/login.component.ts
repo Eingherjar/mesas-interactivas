@@ -102,7 +102,10 @@ export class LoginComponent implements OnInit {
           break;
 
         case 'registrar':
+<<<<<<< HEAD
           // console.log("datos que entran en registrar de login", this.configuracion);
+=======
+>>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
           break;
       }
     }
@@ -184,6 +187,10 @@ export class LoginComponent implements OnInit {
   }
 
   registrar() {
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 3ae1ab351b734d3ef91905bb015c8aaf27aa678c
     let registrar = {
       nombre: this.texto_usuario,
       correo: this.texto_correo,

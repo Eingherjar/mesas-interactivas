@@ -3,14 +3,11 @@
     <div class="imagen">
       <img src="https://picsum.photos/344/194" alt="menu_principal" />
     </div>
-    <h2 class="textoSecundario">
-      NOMBRE DEL RESTAURANTE
-    </h2>
+    <h2 class="textoSecundario"> NOMBRE DEL RESTAURANTE</h2>
 
     <nav class="menu">
       <ul class="textoSecundario">
-        <li [style.color]="seleccion == 'menu' ?'#ff9200' : '#707070'" (click)="envio('menu')" style="cursor: pointer;">
-          Menú</li>
+        <li [style.color]="seleccion == 'menu' ?'#ff9200' : '#707070'" (click)="envio('menu')" style="cursor: pointer;">Menú</li>
 
         <li [style.color]="seleccion == 'mesas' ?'#ff9200' : '#707070'" (click)="envio('mesas')"
           style="cursor: pointer;">Mesas - códigos QR</li>
@@ -20,7 +17,6 @@
 
         <li [style.color]="seleccion == 'cerrar' ?'#ff9200' : '#707070'" (click)="envio('cerrar')"
           style="cursor: pointer;">Cerrar sesión</li>
-
       </ul>
     </nav>
   </div>

@@ -102,5 +102,4 @@ export class ClienteService extends class_http {
       })
     )
   }
-
 }
