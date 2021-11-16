@@ -19,14 +19,20 @@ function getDbPool() {
         cachedDbPool = mysql.createPool({
             // nada mas se puede descomentar cuando se va subir a google cloud
             // (cuando se suba hay que montar una nueva imagen que contenga los nuevos cambios)
-            connectionLimit: 1,
-            user: process.env.SQL_USER,
-            password: process.env.SQL_PASSWORD,
-            database: process.env.SQL_NAME,
-            socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
+            // connectionLimit: 1,
+            // user: process.env.SQL_USER,
+            // password: process.env.SQL_PASSWORD,
+            // database: process.env.SQL_NAME,
+            // socketPath: `/cloudsql/${process.env.INST_CON_NAME}`
 
 
             // esto nada mas se descomenta cuando se estan haciendo pruebas locales
+            // host: "34.95.157.90",
+            // user: "mesasdb",
+            // password: "mesasdb123",
+            // database: 'mesas_interactivas'
+
+            // datas para ingresar a la base de datos de heroku
             // host: "34.95.157.90",
             // user: "mesasdb",
             // password: "mesasdb123",
