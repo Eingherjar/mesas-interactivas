@@ -33,10 +33,11 @@ function getDbPool() {
             // database: 'mesas_interactivas'
 
             // datas para ingresar a la base de datos de heroku
-            // host: "34.95.157.90",
-            // user: "mesasdb",
-            // password: "mesasdb123",
-            // database: 'mesas_interactivas'
+            //  mysql://ba6cc48f78a003:c3156c8a@us-cdbr-east-04.cleardb.com/heroku_e48d0b3549e8187?reconnect=true
+            host: "us-cdbr-east-04.cleardb.com",
+            user: "ba6cc48f78a003",
+            password: "c3156c8a",
+            database: 'heroku_e48d0b3549e8187'
         });
 
 
