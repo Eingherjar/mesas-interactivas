@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login/', pathMatch: 'full' },
   { path: 'admin', component:AdministradorComponent},
   { path: 'login/:id', component:SharedComponent},
+  { path: 'employment/:id', component:SharedComponent},
   { path: 'cliente/:mesa',component:ClienteComponent}
 ];
 export const APP_ROUTING = RouterModule.forRoot(routes);
